@@ -1,9 +1,10 @@
-package com.teckudos.goldenhicare
+package com.teckudos.goldenhicare.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.teckudos.goldenhicare.R
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
