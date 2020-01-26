@@ -72,6 +72,9 @@ dependencies {
     //material design
     implementation "com.google.android.material:material:$version_material"
 
+    //fragment
+    implementation "androidx.fragment:fragment-ktx:$version_fragment"
+
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
