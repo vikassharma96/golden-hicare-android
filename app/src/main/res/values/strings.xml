@@ -3,4 +3,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="callus">Call Us</string>
+    <string name="invite">Invite Friend</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="about">About GoldenHicare</string>
+    <string name="logout">Logout</string>
 </resources>

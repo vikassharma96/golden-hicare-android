@@ -85,6 +85,8 @@ dependencies {
     //room
     implementation "androidx.room:room-runtime:$version_room"
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     kapt "androidx.room:room-compiler:$version_room"
 
     //coroutines for getting of the UI thread
@@ -116,6 +118,9 @@ dependencies {
 
     //client for retrieving location
     implementation "com.google.android.gms:play-services-location:$version_play_services"
+
+    // viewpager
+    implementation "androidx.viewpager2:viewpager2:$version_viewpager"
 
     //testing dependencies
     testImplementation "junit:junit:$version_junit"

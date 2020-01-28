@@ -2,25 +2,46 @@ package com.teckudos.goldenhicare.views
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import com.teckudos.goldenhicare.databinding.FragmentLoginBinding
+import com.teckudos.goldenhicare.viewmodels.LoginViewModel
+import timber.log.Timber
 
-import com.teckudos.goldenhicare.R
-
-/**
- * A simple [Fragment] subclass.
- */
 class LoginFragment : Fragment() {
+
+    private val viewModel: LoginViewModel by lazy {
+        ViewModelProvider(this).get(LoginViewModel::class.java)
+    }
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        binding = FragmentLoginBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        init()
+        initObserver()
+        return binding.root
     }
 
+    private fun init() {}
 
+    private fun initObserver() {
+        viewModel.navigateToMain.observe(viewLifecycleOwner,
+            Observer<Boolean> { shouldNavigate ->
+                Timber.i("called")
+                if (shouldNavigate == true) {
+                    val navController = binding.root.findNavController()
+                    navController.navigate(LoginFragmentDirections.actionLoginFragmentToMainFragment())
+                }
+            })
+    }
 }
