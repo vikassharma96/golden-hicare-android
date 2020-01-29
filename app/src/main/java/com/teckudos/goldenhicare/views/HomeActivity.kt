@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.ViewParent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
@@ -43,19 +44,24 @@ class HomeActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.navView, navController)
         binding.navView.setNavigationItemSelectedListener(NavigationView.OnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.callus -> {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                    callFromDialer("9582296350")
+            val handled = NavigationUI.onNavDestinationSelected(menuItem, navController)
+            if (handled) {
+                val parent: ViewParent = binding.navView.parent
+                if (parent is DrawerLayout) {
+                    parent.closeDrawer(binding.navView)
                 }
-                R.id.invite -> {
-                    share()
-                }
-                else -> {
-                    Timber.i("called")
+            } else {
+                when (menuItem.itemId) {
+                    R.id.callus -> {
+                        drawerLayout.closeDrawer(GravityCompat.START)
+                        callFromDialer("9582296350")
+                    }
+                    R.id.invite -> {
+                        share()
+                    }
                 }
             }
-            true
+            handled
         })
         supportActionBar?.hide()
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
