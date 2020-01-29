@@ -10,4 +10,5 @@
     <string name="bookmark">Bookmark</string>
     <string name="about">About GoldenHicare</string>
     <string name="logout">Logout</string>
+    <string name="sharing_not_available">sharing not available</string>
 </resources>

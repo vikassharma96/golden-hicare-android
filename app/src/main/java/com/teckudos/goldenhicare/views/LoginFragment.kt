@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import com.teckudos.goldenhicare.databinding.FragmentLoginBinding
 import com.teckudos.goldenhicare.viewmodels.LoginViewModel
 import timber.log.Timber
@@ -39,8 +38,7 @@ class LoginFragment : Fragment() {
             Observer<Boolean> { shouldNavigate ->
                 Timber.i("called")
                 if (shouldNavigate == true) {
-                    val navController = binding.root.findNavController()
-                    navController.navigate(LoginFragmentDirections.actionLoginFragmentToMainFragment())
+                    (requireActivity() as HomeActivity).changeGraph()
                 }
             })
     }

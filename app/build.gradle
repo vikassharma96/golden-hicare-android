@@ -122,6 +122,9 @@ dependencies {
     // viewpager
     implementation "androidx.viewpager2:viewpager2:$version_viewpager"
 
+    // Stetho
+    implementation "com.facebook.stetho:stetho:$version_stetho"
+
     //testing dependencies
     testImplementation "junit:junit:$version_junit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso"

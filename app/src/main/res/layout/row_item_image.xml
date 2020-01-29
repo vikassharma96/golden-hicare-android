@@ -1,0 +1,43 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.teckudos.goldenhicare.domain.Item" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/viewRoot"
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:layout_marginLeft="@dimen/pageMarginAndOffset"
+            android:layout_marginRight="@dimen/pageMarginAndOffset"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:cardUseCompatPadding="true"
+            card_view:cardCornerRadius="8dp">
+
+            <ImageView
+                android:id="@+id/url"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY"
+                app:imageUrl="@{item.url}" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

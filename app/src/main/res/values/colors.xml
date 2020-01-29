@@ -8,4 +8,6 @@
     <color name="grey_color">#606060</color>
     <color name="light_grey">#ff666666</color>
     <color name="scrim">#33000000</color>
+    <color name="system_ui_scrim_black">#40000000</color>
+
 </resources>
