@@ -36,9 +36,11 @@ class LoginFragment : Fragment() {
     private fun initObserver() {
         viewModel.navigateToMain.observe(viewLifecycleOwner,
             Observer<Boolean> { shouldNavigate ->
-                Timber.i("called")
+                Timber.i("called.......outside")
                 if (shouldNavigate == true) {
+                    Timber.i("called.......inside")
                     (requireActivity() as HomeActivity).changeGraph()
+                    viewModel.onNavigatedToMain()
                 }
             })
     }
