@@ -17,11 +17,11 @@ class MainViewModel : ViewModel() {
 
     init {
         images = listOf(
-            Item(1, "https://picsum.photos/200/300"),
-            Item(2, "https://picsum.photos/200/300"),
-            Item(3, "https://picsum.photos/200/300"),
-            Item(4, "https://picsum.photos/200/300"),
-            Item(5, "https://picsum.photos/200/300")
+            Item(1, "https://image.freepik.com/free-vector/mosquito-control-concept_23-2147946479.jpg"),
+            Item(2, "https://image.freepik.com/free-vector/mosquito-control-concept_23-2147946479.jpg"),
+            Item(3, "https://image.freepik.com/free-vector/mosquito-control-concept_23-2147946479.jpg"),
+            Item(4, "https://image.freepik.com/free-vector/mosquito-control-concept_23-2147946479.jpg"),
+            Item(5, "https://image.freepik.com/free-vector/mosquito-control-concept_23-2147946479.jpg")
         )
         category = listOf(
             Category(1, "Pest Control"),

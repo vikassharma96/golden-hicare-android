@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 
 import com.teckudos.goldenhicare.R
 import com.teckudos.goldenhicare.databinding.FragmentSplashBinding
+import com.teckudos.goldenhicare.utils.SharedPreferenceUtil
 
 
 class SplashFragment : Fragment() {
@@ -29,7 +30,11 @@ class SplashFragment : Fragment() {
 
     private fun init() {
         runnable = Runnable {
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            if (SharedPreferenceUtil.isRegistered) {
+                (requireActivity() as HomeActivity).changeGraph()
+            } else{
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            }
         }
         handler.postDelayed(runnable, 1000)
     }

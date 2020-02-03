@@ -14,20 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/viewRoot"
+            style="@style/Widget.MaterialComponents.CardView"
             android:layout_width="match_parent"
-            android:layout_height="216dp"
+            android:layout_height="196dp"
             android:layout_marginLeft="@dimen/pageMarginAndOffset"
             android:layout_marginRight="@dimen/pageMarginAndOffset"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            app:cardUseCompatPadding="true"
-            card_view:cardCornerRadius="8dp">
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            app:cardUseCompatPadding="true">
 
             <ImageView
                 android:id="@+id/url"
@@ -37,7 +37,7 @@
                 android:scaleType="fitXY"
                 app:imageUrl="@{item.url}" />
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

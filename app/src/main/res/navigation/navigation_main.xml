@@ -10,11 +10,26 @@
         android:id="@+id/mainFragment"
         android:name="com.teckudos.goldenhicare.views.MainFragment"
         android:label="GoldenHicare"
-        tools:layout="@layout/main_fragment"/>
+        tools:layout="@layout/main_fragment" />
     <fragment
         android:id="@+id/dashBoardFragment"
         android:name="com.teckudos.goldenhicare.views.DashBoardFragment"
         android:label="DashBoard"
-        tools:layout="@layout/fragment_dash_board"/>
+        tools:layout="@layout/fragment_dash_board" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.teckudos.goldenhicare.views.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.teckudos.goldenhicare.views.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.teckudos.goldenhicare.views.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search" />
 
 </navigation>
