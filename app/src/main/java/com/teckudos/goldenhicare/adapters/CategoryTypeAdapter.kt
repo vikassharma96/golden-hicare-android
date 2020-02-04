@@ -9,21 +9,21 @@ import com.teckudos.goldenhicare.R
 import com.teckudos.goldenhicare.databinding.RowCategoryTypeBinding
 import com.teckudos.goldenhicare.domain.Category
 
-class CategoryAdapter : RecyclerView.Adapter<CategoryViewHolder>() {
+class CategoryTypeAdapter : RecyclerView.Adapter<CategoryTypeViewHolder>() {
 
     private var items: List<Category> = listOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryTypeViewHolder {
         val withDataBinding: RowCategoryTypeBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            CategoryViewHolder.LAYOUT,
+            CategoryTypeViewHolder.LAYOUT,
             parent,
             false
         )
-        return CategoryViewHolder(withDataBinding)
+        return CategoryTypeViewHolder(withDataBinding)
     }
 
-    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CategoryTypeViewHolder, position: Int) {
         holder.categoryBinding.also {
             it.item = items[position]
         }
@@ -37,7 +37,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryViewHolder>() {
     override fun getItemCount(): Int = items.size
 }
 
-class CategoryViewHolder(val categoryBinding: RowCategoryTypeBinding) :
+class CategoryTypeViewHolder(val categoryBinding: RowCategoryTypeBinding) :
     RecyclerView.ViewHolder(categoryBinding.root) {
     companion object {
         @LayoutRes

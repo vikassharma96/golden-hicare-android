@@ -84,7 +84,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details"
             app:spanCount="1"
-            tools:listitem="@layout/row_item_category" />
+            tools:listitem="@layout/row_category_type" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

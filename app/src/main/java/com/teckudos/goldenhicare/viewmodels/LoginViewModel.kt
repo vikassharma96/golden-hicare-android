@@ -20,8 +20,4 @@ class LoginViewModel : ViewModel() {
     fun onNavigateToMain() {
         _navigateToMain.value = true
     }
-
-    fun onNavigatedToMain(){
-        _navigateToMain.value = false
-    }
 }

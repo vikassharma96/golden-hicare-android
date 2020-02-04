@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.teckudos.goldenhicare.R
-import com.teckudos.goldenhicare.adapters.CategoryAdapter
+import com.teckudos.goldenhicare.adapters.CategoryTypeAdapter
 import com.teckudos.goldenhicare.adapters.ImageSlideAdapter
 import com.teckudos.goldenhicare.databinding.FragmentMainBinding
 import com.teckudos.goldenhicare.viewmodels.MainViewModel
@@ -79,7 +78,7 @@ class MainFragment : Fragment() {
             adapter = imageSlideAdapter
         }
 
-        val categoryAdapter = CategoryAdapter()
+        val categoryAdapter = CategoryTypeAdapter()
         categoryAdapter.setItem(viewModel.category)
         with(binding.recyclerView) {
             adapter = categoryAdapter

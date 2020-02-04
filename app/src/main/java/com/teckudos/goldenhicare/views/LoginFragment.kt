@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.teckudos.goldenhicare.databinding.FragmentLoginBinding
 import com.teckudos.goldenhicare.viewmodels.LoginViewModel
-import timber.log.Timber
 
 class LoginFragment : Fragment() {
 
@@ -36,11 +35,8 @@ class LoginFragment : Fragment() {
     private fun initObserver() {
         viewModel.navigateToMain.observe(viewLifecycleOwner,
             Observer<Boolean> { shouldNavigate ->
-                Timber.i("called.......outside")
                 if (shouldNavigate == true) {
-                    Timber.i("called.......inside")
                     (requireActivity() as HomeActivity).changeGraph()
-                    viewModel.onNavigatedToMain()
                 }
             })
     }
