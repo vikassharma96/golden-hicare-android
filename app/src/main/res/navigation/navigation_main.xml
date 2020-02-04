@@ -10,7 +10,7 @@
         android:id="@+id/mainFragment"
         android:name="com.teckudos.goldenhicare.views.MainFragment"
         android:label="GoldenHicare"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/dashBoardFragment"
         android:name="com.teckudos.goldenhicare.views.DashBoardFragment"

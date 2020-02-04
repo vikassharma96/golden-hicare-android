@@ -14,7 +14,7 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.teckudos.goldenhicare.R
 import com.teckudos.goldenhicare.adapters.CategoryAdapter
 import com.teckudos.goldenhicare.adapters.ImageSlideAdapter
-import com.teckudos.goldenhicare.databinding.MainFragmentBinding
+import com.teckudos.goldenhicare.databinding.FragmentMainBinding
 import com.teckudos.goldenhicare.viewmodels.MainViewModel
 
 
@@ -24,13 +24,13 @@ class MainFragment : Fragment() {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
-    private lateinit var binding: MainFragmentBinding
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = MainFragmentBinding.inflate(inflater)
+        binding = FragmentMainBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         init()

@@ -15,7 +15,7 @@
             android:fitsSystemWindows="true"
             tools:openDrawer="end">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -24,7 +24,10 @@
                     android:id="@+id/main_appbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/AppTheme.AppBarOverlay">
+                    android:theme="@style/AppTheme.AppBarOverlay"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.appcompat.widget.Toolbar
                         android:id="@+id/main_toolbar"
@@ -34,14 +37,24 @@
 
                 </com.google.android.material.appbar.AppBarLayout>
 
-                <fragment
-                    android:id="@+id/myNavHostFragment"
-                    android:name="androidx.navigation.fragment.NavHostFragment"
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
-                    app:defaultNavHost="true"
-                    app:navGraph="@navigation/navigation" />
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/main_appbar">
+
+                    <fragment
+                        android:id="@+id/myNavHostFragment"
+                        android:name="androidx.navigation.fragment.NavHostFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:defaultNavHost="true"
+                        app:navGraph="@navigation/navigation" />
+
+                </ScrollView>
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/bottom_navigation"
@@ -57,7 +70,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:menu="@menu/bottom_navigation" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.navigation.NavigationView
                 android:id="@+id/navView"

@@ -31,5 +31,5 @@
         android:id="@+id/mainFragment"
         android:name="com.teckudos.goldenhicare.views.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/main_fragment"/>
+        tools:layout="@layout/fragment_main"/>
 </navigation>
