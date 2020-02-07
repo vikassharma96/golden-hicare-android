@@ -6,15 +6,15 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.teckudos.goldenhicare.R
-import com.teckudos.goldenhicare.databinding.RowCategoryTypeBinding
-import com.teckudos.goldenhicare.domain.Category
+import com.teckudos.goldenhicare.databinding.RowCategoryItemBinding
+import com.teckudos.goldenhicare.domain.CategoryItem
 
 class CategoryAdapter : RecyclerView.Adapter<CategoryViewHolder>() {
 
-    private var items: List<Category> = listOf()
+    private var items: List<CategoryItem> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
-        val withDataBinding: RowCategoryTypeBinding = DataBindingUtil.inflate(
+        val withDataBinding: RowCategoryItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             CategoryViewHolder.LAYOUT,
             parent,
@@ -29,7 +29,7 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryViewHolder>() {
         }
     }
 
-    fun setItem(list: List<Category>) {
+    fun setItem(list: List<CategoryItem>) {
         this.items = list
         notifyDataSetChanged()
     }
@@ -37,11 +37,10 @@ class CategoryAdapter : RecyclerView.Adapter<CategoryViewHolder>() {
     override fun getItemCount(): Int = items.size
 }
 
-class CategoryViewHolder(val categoryBinding: RowCategoryTypeBinding) :
+class CategoryViewHolder(val categoryBinding: RowCategoryItemBinding) :
     RecyclerView.ViewHolder(categoryBinding.root) {
     companion object {
         @LayoutRes
-        val LAYOUT = R.layout.row_category_type
+        val LAYOUT = R.layout.row_category_item
     }
 }
-

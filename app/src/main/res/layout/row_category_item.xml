@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.teckudos.goldenhicare.domain.Category" />
+            type="com.teckudos.goldenhicare.domain.CategoryItem" />
 
     </data>
 
@@ -52,18 +52,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Vikas Sharma"
+                    android:text="@{item.name}"
                     app:layout_constraintStart_toEndOf="@+id/barrier"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Vikas Sharma" />
 
                 <TextView
                     android:id="@+id/desciption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Teckudos Pvt Ltd"
+                    android:text="@{item.description}"
                     app:layout_constraintStart_toEndOf="@+id/barrier"
-                    app:layout_constraintTop_toBottomOf="@+id/name" />
+                    app:layout_constraintTop_toBottomOf="@+id/name"
+                    tools:text="Teckudos Pvt Ltd" />
 
                 <androidx.appcompat.widget.AppCompatRatingBar
                     android:id="@+id/rating_bar"
@@ -72,9 +74,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:numStars="5"
-                    android:rating="4.5"
+                    android:rating="@{Float.valueOf(item.rating)}"
                     app:layout_constraintStart_toEndOf="@+id/barrier"
-                    app:layout_constraintTop_toBottomOf="@+id/desciption" />
+                    app:layout_constraintTop_toBottomOf="@+id/desciption"
+                    tools:rating="4.5" />
 
                 <View
                     android:id="@+id/forwardslash"
@@ -102,12 +105,13 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="2dp"
                     android:gravity="center_vertical|center"
-                    android:text="23%"
+                    android:text="@{item.percent}"
                     android:textAlignment="center"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@+id/rating_bar"
                     app:layout_constraintStart_toEndOf="@+id/thumb"
-                    app:layout_constraintTop_toTopOf="@+id/rating_bar" />
+                    app:layout_constraintTop_toTopOf="@+id/rating_bar"
+                    tools:text="23%" />
 
                 <ImageView
                     android:id="@+id/iv_phone"
@@ -122,12 +126,13 @@
                     android:id="@+id/number"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
-                    android:text="9582296350"
-                    android:textAlignment="center"
                     android:layout_marginStart="4dp"
+                    android:text="@{item.number}"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_phone"
                     app:layout_constraintStart_toEndOf="@+id/iv_phone"
-                    app:layout_constraintTop_toTopOf="@+id/iv_phone" />
+                    app:layout_constraintTop_toTopOf="@+id/iv_phone"
+                    tools:text="9582296350" />
 
                 <ImageView
                     android:id="@+id/iv_email"
@@ -140,7 +145,13 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@{item.email}"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_email"
+                    app:layout_constraintStart_toEndOf="@+id/iv_email"
+                    app:layout_constraintTop_toTopOf="@+id/iv_email"
+                    tools:text="teckudos@gmail.com" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

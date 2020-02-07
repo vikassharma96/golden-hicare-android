@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
@@ -78,11 +79,15 @@ class MainFragment : Fragment() {
             adapter = imageSlideAdapter
         }
 
-        val categoryAdapter = CategoryTypeAdapter()
+        val categoryAdapter = CategoryTypeAdapter{ onItemClick() }
         categoryAdapter.setItem(viewModel.category)
         with(binding.recyclerView) {
             adapter = categoryAdapter
         }
+    }
+
+    private fun onItemClick(){
+        findNavController().navigate(MainFragmentDirections.actionMainFragmentToCategoryFragment())
     }
 }
 

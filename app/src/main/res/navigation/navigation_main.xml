@@ -10,7 +10,11 @@
         android:id="@+id/mainFragment"
         android:name="com.teckudos.goldenhicare.views.MainFragment"
         android:label="GoldenHicare"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/dashBoardFragment"
         android:name="com.teckudos.goldenhicare.views.DashBoardFragment"
@@ -31,5 +35,19 @@
         android:name="com.teckudos.goldenhicare.views.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.teckudos.goldenhicare.views.CategoryFragment"
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_categoryDetailFragment"
+            app:destination="@id/categoryDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryDetailFragment"
+        android:name="com.teckudos.goldenhicare.views.CategoryDetailFragment"
+        android:label="CategoryDetailFragment"
+        tools:layout="@layout/fragment_category_detail"/>
 
 </navigation>
