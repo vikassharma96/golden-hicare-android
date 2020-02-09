@@ -11,4 +11,11 @@
     <string name="about">About GoldenHicare</string>
     <string name="logout">Logout</string>
     <string name="sharing_not_available">sharing not available</string>
+
+    <string name="recommended_for">
+        <string>\u2022 Lorem ipsum dolor sit amet\n</string>
+        <string>\u2022 sed do eiusmod tempor incididunt\n</string>
+        <string>\u2022 deserunt mollit anim id est laborum\n</string>
+    </string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 </resources>

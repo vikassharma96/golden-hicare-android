@@ -8,7 +8,7 @@ object SharedPreferenceUtil {
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
-    private val IS_REGISTERED = Pair("is_registered", false) // todo to false
+    private val IS_REGISTERED = Pair("is_registered", true) // todo to false
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)

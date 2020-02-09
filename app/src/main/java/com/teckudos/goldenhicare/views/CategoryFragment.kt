@@ -32,10 +32,14 @@ class CategoryFragment : Fragment() {
     }
 
     private fun init() {
-        with(binding){
-            val adapter = CategoryAdapter()
+        with(binding) {
+            val adapter = CategoryAdapter { onItemClick() }
             adapter.setItem(viewModel.getCategoryItem())
-            rvCategory.adapter =adapter
+            rvCategory.adapter = adapter
         }
+    }
+
+    private fun onItemClick() {
+        findNavController().navigate(CategoryFragmentDirections.actionCategoryFragmentToCategoryDetailFragment())
     }
 }
