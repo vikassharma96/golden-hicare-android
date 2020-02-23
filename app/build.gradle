@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -123,6 +124,9 @@ dependencies {
 
     // Stetho
     implementation "com.facebook.stetho:stetho:$version_stetho"
+
+    // Firebase
+    implementation "com.google.firebase:firebase-analytics:$version_firebase_analytics"
 
     //testing dependencies
     testImplementation "junit:junit:$version_junit"

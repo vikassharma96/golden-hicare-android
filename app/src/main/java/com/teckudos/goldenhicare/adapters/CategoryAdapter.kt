@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.teckudos.goldenhicare.R
 import com.teckudos.goldenhicare.databinding.RowCategoryItemBinding
 import com.teckudos.goldenhicare.domain.CategoryItem
+import com.teckudos.goldenhicare.views.SearchFragment
 
-class CategoryAdapter(private val onItemCLick: () -> Unit) : RecyclerView.Adapter<CategoryViewHolder>() {
+class CategoryAdapter(private val onItemCLick: () -> Unit) :
+    RecyclerView.Adapter<CategoryViewHolder>() {
 
-    private var items: List<CategoryItem> = listOf()
+    private var items: ArrayList<CategoryItem> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val withDataBinding: RowCategoryItemBinding = DataBindingUtil.inflate(
@@ -32,8 +34,9 @@ class CategoryAdapter(private val onItemCLick: () -> Unit) : RecyclerView.Adapte
         }
     }
 
-    fun setItem(list: List<CategoryItem>) {
-        this.items = list
+    fun setItem(list: ArrayList<CategoryItem>) {
+        items = arrayListOf()
+        items.addAll(list)
         notifyDataSetChanged()
     }
 

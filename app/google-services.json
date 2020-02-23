@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "28696421637",
+    "firebase_url": "https://goldenhicare-da6c7.firebaseio.com",
+    "project_id": "goldenhicare-da6c7",
+    "storage_bucket": "goldenhicare-da6c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28696421637:android:0c9814e868bea735f7036c",
+        "android_client_info": {
+          "package_name": "com.teckudos.goldenhicare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28696421637-6bhh16o1lhhra1ppqukppdeepfthi1ai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.teckudos.goldenhicare",
+            "certificate_hash": "6e5fa417ef255b966b7974cd93192a9be2c4843d"
+          }
+        },
+        {
+          "client_id": "28696421637-devcrpat8thri42qkglfp618ahfljqe6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxR8BS_WRl_xakr350edmqdckAE8CRAQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28696421637-devcrpat8thri42qkglfp618ahfljqe6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

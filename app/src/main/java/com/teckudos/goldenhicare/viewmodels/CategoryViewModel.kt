@@ -20,8 +20,8 @@ class CategoryViewModel : ViewModel() {
         viewModelJob.cancel()
     }
 
-    fun getCategoryItem(): MutableList<CategoryItem> {
-        val categoryItem = mutableListOf<CategoryItem>()
+    fun getCategoryItem(): ArrayList<CategoryItem> {
+        val categoryItem = arrayListOf<CategoryItem>()
         for (count in 0..10) {
             categoryItem.add(
                 CategoryItem(

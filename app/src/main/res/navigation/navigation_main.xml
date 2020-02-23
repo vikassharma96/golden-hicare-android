@@ -23,22 +23,26 @@
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.teckudos.goldenhicare.views.HistoryFragment"
-        android:label="HistoryFragment"
+        android:label="History"
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.teckudos.goldenhicare.views.ProfileFragment"
-        android:label="ProfileFragment"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.teckudos.goldenhicare.views.SearchFragment"
-        android:label="SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        android:label="Search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_categoryDetailFragment"
+            app:destination="@id/categoryDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.teckudos.goldenhicare.views.CategoryFragment"
-        android:label="CategoryFragment"
+        android:label="Category"
         tools:layout="@layout/fragment_category">
         <action
             android:id="@+id/action_categoryFragment_to_categoryDetailFragment"
@@ -47,7 +51,7 @@
     <fragment
         android:id="@+id/categoryDetailFragment"
         android:name="com.teckudos.goldenhicare.views.CategoryDetailFragment"
-        android:label="CategoryDetailFragment"
+        android:label="Detail"
         tools:layout="@layout/fragment_category_detail"/>
 
 </navigation>
