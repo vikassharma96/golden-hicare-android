@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 
 import com.teckudos.goldenhicare.R
@@ -18,6 +19,10 @@ class SplashFragment : Fragment() {
 
     private var handler = Handler()
     private lateinit var runnable: Runnable
+
+    private val viewModel: HomeViewModel by lazy {
+        ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +36,8 @@ class SplashFragment : Fragment() {
     private fun init() {
         runnable = Runnable {
             if (SharedPreferenceUtil.isRegistered) {
-                (requireActivity() as HomeActivity).changeGraph()
-            } else{
+                viewModel.changeGraph.value = true
+            } else {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
             }
         }

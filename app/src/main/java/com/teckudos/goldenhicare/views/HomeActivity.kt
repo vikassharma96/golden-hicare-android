@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +19,7 @@ import com.teckudos.goldenhicare.R
 import com.teckudos.goldenhicare.databinding.ActivityHomeBinding
 import com.teckudos.goldenhicare.utils.call
 import com.teckudos.goldenhicare.utils.share
+import com.teckudos.goldenhicare.viewmodels.LoginViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 
 
@@ -27,6 +30,10 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
 
     var currentController: NavController? = null
+
+    private val viewModel: HomeViewModel by lazy {
+        ViewModelProvider(this).get(HomeViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
         NavigationUI.setupWithNavController(binding.navView, navController)
 
-        binding.bottomNavigation.setupWithNavController(navController)
+        // binding.bottomNavigation.setupWithNavController(navController)
 
         setSupportActionBar(binding.mainToolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -57,11 +64,11 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+        /*navController.addOnDestinationChangedListener { controller, destination, arguments ->
             if (destination.id == R.id.mainFragment) {
                 binding.bottomNavigation.visibility = View.VISIBLE
             }
-        }
+        }*/
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             val isHandled = NavigationUI.onNavDestinationSelected(menuItem, navController)
             if (isHandled) {
@@ -82,13 +89,19 @@ class HomeActivity : AppCompatActivity() {
             }
             isHandled
         }
+        viewModel.changeGraph.observe(this, Observer { changeGraph ->
+            if (changeGraph) {
+                changeGraph()
+                viewModel.changeGraph.value = false
+            }
+        })
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
-    fun changeGraph() {
+    private fun changeGraph() {
         navController.setGraph(R.navigation.navigation_main)
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
         supportActionBar?.show()

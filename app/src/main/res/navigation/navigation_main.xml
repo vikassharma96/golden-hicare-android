@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_mainFragment_to_categoryFragment"
             app:destination="@id/categoryFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_categoryDetailFragment"
+            app:destination="@id/categoryDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashBoardFragment"
@@ -51,7 +54,11 @@
     <fragment
         android:id="@+id/categoryDetailFragment"
         android:name="com.teckudos.goldenhicare.views.CategoryDetailFragment"
-        android:label="Detail"
-        tools:layout="@layout/fragment_category_detail"/>
+        android:label="Pest Control"
+        tools:layout="@layout/fragment_category_detail">
+        <argument
+            android:name="category"
+            app:argType="com.teckudos.goldenhicare.domain.Category" />
+    </fragment>
 
 </navigation>

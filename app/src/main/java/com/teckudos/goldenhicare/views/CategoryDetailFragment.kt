@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.teckudos.goldenhicare.databinding.FragmentCategoryDetailBinding
 import com.teckudos.goldenhicare.viewmodels.CategoryDetailViewModel
 
@@ -15,6 +16,8 @@ class CategoryDetailFragment : Fragment() {
     private val viewModel: CategoryDetailViewModel by lazy {
         ViewModelProvider(this).get(CategoryDetailViewModel::class.java)
     }
+    private lateinit var args: CategoryDetailFragmentArgs
+    private lateinit var binding: FragmentCategoryDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +30,9 @@ class CategoryDetailFragment : Fragment() {
         return binding.root
     }
 
-    private fun init(){
+    private fun init() {
+        args = CategoryDetailFragmentArgs.fromBundle(arguments!!)
+        val category = args.category
 
     }
-
 }

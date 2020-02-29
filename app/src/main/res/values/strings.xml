@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">GoldenHicare</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="dashboard">Dashboard</string>
     <string name="callus">Call Us</string>
@@ -12,10 +10,17 @@
     <string name="logout">Logout</string>
     <string name="sharing_not_available">sharing not available</string>
 
-    <string name="recommended_for">
-        <string>\u2022 Lorem ipsum dolor sit amet\n</string>
-        <string>\u2022 sed do eiusmod tempor incididunt\n</string>
-        <string>\u2022 deserunt mollit anim id est laborum\n</string>
+    <string name="c_inc">
+        <string>\u2022 60 days service guarantee included\n</string>
+        <string>\u2022 Exclusive 2-step process targets both grow cockroaches &amp; eggs that hatch in 15 days</string>
     </string>
-    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="c_proc">
+        <string>\u2022 Spraying to be done in all parts of house in 1st visit (Kitchen need to be emptied by customer)\n</string>
+        <string>\u2022 Gel application done in 2 visit to target eggs of cockroaches (generally hatch in 2+ weeks)</string>
+    </string>
+    <string name="c_saf">
+        <string>\u2022 Do not touch surfaces until dry\n</string>
+        <string>\u2022 Do not wipe or spray any other chemical on the gel</string>
+    </string>
+    <string name="c_c">\u2022 Only government approved safe &amp; odourless chemicals by Bayer to used (in recommended dosage only)</string>
 </resources>

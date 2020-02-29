@@ -9,7 +9,7 @@ import com.teckudos.goldenhicare.R
 import com.teckudos.goldenhicare.databinding.RowCategoryTypeBinding
 import com.teckudos.goldenhicare.domain.Category
 
-class CategoryTypeAdapter(private val onItemCLick: () -> Unit) : RecyclerView.Adapter<CategoryTypeViewHolder>() {
+class CategoryTypeAdapter(private val onItemCLick: (Category) -> Unit) : RecyclerView.Adapter<CategoryTypeViewHolder>() {
 
     private var items: List<Category> = listOf()
 
@@ -27,7 +27,7 @@ class CategoryTypeAdapter(private val onItemCLick: () -> Unit) : RecyclerView.Ad
         holder.categoryBinding.also {
             it.item = items[position]
             it.clMain.setOnClickListener {
-                onItemCLick.invoke()
+                onItemCLick.invoke(items[position])
             }
         }
     }

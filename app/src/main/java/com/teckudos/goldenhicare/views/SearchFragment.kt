@@ -63,7 +63,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun onItemClick() {
-        findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToCategoryDetailFragment())
+//        findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToCategoryDetailFragment())
     }
 
     private fun getCategoryItem(): ArrayList<CategoryItem> {

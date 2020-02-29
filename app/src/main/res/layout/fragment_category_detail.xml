@@ -13,168 +13,365 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.CategoryDetailFragment">
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:scaleType="fitXY"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/avatar" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".views.CategoryDetailFragment">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="8dp"
-            android:onClick="@{() -> viewModel.addToCart()}"
-            android:text="Add To Cart"
-            android:visibility="@{viewModel.count == 0 ? View.VISIBLE : View.GONE}"
-            app:layout_constraintBottom_toBottomOf="@+id/image_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:visibility="gone" />
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="0dp"
+                android:layout_height="250dp"
+                android:background="@color/dark_yellow_color"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:background="@drawable/grey_bg"
-            android:backgroundTint="@android:color/holo_orange_light"
-            app:layout_constraintBottom_toBottomOf="@+id/plus"
-            app:layout_constraintEnd_toEndOf="@+id/plus"
-            app:layout_constraintStart_toStartOf="@+id/minus"
-            app:layout_constraintTop_toTopOf="@+id/minus" />
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.MaterialComponents.CardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="8dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="6dp"
+                app:layout_constraintBottom_toTopOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/system_ui_scrim_black"
+                app:strokeWidth="1dp">
 
-        <ImageButton
-            android:id="@+id/minus"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/colorAccent"
-            android:onClick="@{() -> viewModel.minusOne()}"
-            app:layout_constraintBottom_toBottomOf="@+id/image_view"
-            app:layout_constraintEnd_toStartOf="@+id/count"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toEndOf="@+id/image_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_exposure_neg_1" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/count"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="8dp"
-            android:background="@android:color/transparent"
-            android:editable="false"
-            android:focusable="false"
-            android:gravity="center"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:text="@{String.valueOf(viewModel.count)}"
-            app:layout_constraintBottom_toBottomOf="@+id/image_view"
-            app:layout_constraintEnd_toStartOf="@+id/plus"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/minus"
-            tools:text="1" />
+                    <TextView
+                        android:id="@+id/text_view"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        android:text="Golden HiCare"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_email"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/desciption" />
 
-        <ImageButton
-            android:id="@+id/plus"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/colorAccent"
-            android:onClick="@{() -> viewModel.plusOne()}"
-            app:layout_constraintBottom_toBottomOf="@+id/image_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/count"
-            app:srcCompat="@drawable/ic_exposure_plus_1" />
+                    <androidx.constraintlayout.widget.Barrier
+                        android:id="@+id/barrier"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        app:barrierDirection="end"
+                        app:constraint_referenced_ids="text_view"
+                        app:layout_constraintBottom_toBottomOf="@+id/text_view"
+                        app:layout_constraintStart_toEndOf="@+id/text_view"
+                        app:layout_constraintTop_toTopOf="@+id/text_view" />
 
-        <TextView
-            android:id="@+id/heading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="What's included?"
-            android:textColor="@android:color/black"
-            android:textSize="21sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_view" />
+                    <TextView
+                        android:id="@+id/desciption"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:drawableStart="@drawable/ic_location"
+                        android:drawablePadding="4dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Golden HiCare Pest Control Delhi Services"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Golden HiCare Pest Control Delhi Services" />
 
-        <TextView
-            android:id="@+id/details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:maxLines="3"
-            android:text="@string/lorem"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/heading"
-            tools:text="@tools:sample/lorem/random" />
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/rating_bar"
+                        style="@style/Widget.AppCompat.RatingBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:numStars="5"
+                        android:rating="4.5"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toBottomOf="@+id/desciption"
+                        tools:rating="4.5" />
 
-        <TextView
-            android:id="@+id/recommended"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Recommended For"
-            android:textColor="@android:color/black"
-            android:textSize="21sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details" />
+                    <View
+                        android:id="@+id/forwardslash"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="4dp"
+                        android:background="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="@+id/rating_bar"
+                        app:layout_constraintStart_toEndOf="@+id/rating_bar"
+                        app:layout_constraintTop_toTopOf="@+id/rating_bar" />
 
-        <TextView
-            android:id="@+id/recommended_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/recommended_for"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recommended" />
+                    <ImageView
+                        android:id="@+id/thumb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="4dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/rating_bar"
+                        app:layout_constraintStart_toEndOf="@+id/forwardslash"
+                        app:layout_constraintTop_toTopOf="@+id/rating_bar"
+                        app:srcCompat="@drawable/ic_thumb_up" />
 
-        <TextView
-            android:id="@+id/why"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Why you should get this done?"
-            android:textColor="@android:color/black"
-            android:textSize="21sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recommended_details" />
+                    <TextView
+                        android:id="@+id/percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="2dp"
+                        android:gravity="center_vertical|center"
+                        android:text="23%"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/rating_bar"
+                        app:layout_constraintStart_toEndOf="@+id/thumb"
+                        app:layout_constraintTop_toTopOf="@+id/rating_bar"
+                        tools:text="23%" />
 
-        <TextView
-            android:id="@+id/why_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/recommended_for"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/why" />
+                    <ImageView
+                        android:id="@+id/iv_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toBottomOf="@+id/rating_bar"
+                        app:srcCompat="@drawable/ic_call" />
 
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="@{viewModel.count != 0 ? View.VISIBLE : View.GONE}"
-            app:constraint_referenced_ids="minus,plus,count" />
+                    <TextView
+                        android:id="@+id/number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="4dp"
+                        android:drawablePadding="4dp"
+                        android:text="9582296350"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_phone"
+                        app:layout_constraintStart_toEndOf="@+id/iv_phone"
+                        app:layout_constraintTop_toTopOf="@+id/iv_phone"
+                        tools:text="9582296350" />
+
+                    <ImageView
+                        android:id="@+id/iv_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toEndOf="@+id/barrier"
+                        app:layout_constraintTop_toBottomOf="@+id/iv_phone"
+                        app:srcCompat="@drawable/ic_email" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:drawablePadding="4dp"
+                        android:text="teckudos@gmail.com"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/iv_email"
+                        app:layout_constraintStart_toEndOf="@+id/iv_email"
+                        app:layout_constraintTop_toTopOf="@+id/iv_email"
+                        tools:text="teckudos@gmail.com" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:onClick="@{() -> viewModel.addToCart()}"
+                android:text="Add To Cart"
+                android:visibility="@{viewModel.count == 0 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@+id/image_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="gone" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:background="@drawable/grey_bg"
+                android:backgroundTint="@android:color/holo_orange_light"
+                app:layout_constraintBottom_toBottomOf="@+id/plus"
+                app:layout_constraintEnd_toEndOf="@+id/plus"
+                app:layout_constraintStart_toStartOf="@+id/minus"
+                app:layout_constraintTop_toTopOf="@+id/minus" />
+
+            <ImageButton
+                android:id="@+id/minus"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> viewModel.minusOne()}"
+                app:layout_constraintBottom_toBottomOf="@+id/image_view"
+                app:layout_constraintEnd_toStartOf="@+id/count"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/image_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ic_exposure_neg_1" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/count"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:focusable="false"
+                android:gravity="center"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:text="@{String.valueOf(viewModel.count)}"
+                app:layout_constraintBottom_toBottomOf="@+id/image_view"
+                app:layout_constraintEnd_toStartOf="@+id/plus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/minus"
+                tools:text="1" />
+
+            <ImageButton
+                android:id="@+id/plus"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="@color/colorAccent"
+                android:onClick="@{() -> viewModel.plusOne()}"
+                app:layout_constraintBottom_toBottomOf="@+id/image_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/count"
+                app:srcCompat="@drawable/ic_exposure_plus_1" />
+
+            <TextView
+                android:id="@+id/heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="What's included?"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view" />
+
+            <TextView
+                android:id="@+id/details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/c_inc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+            <TextView
+                android:id="@+id/recommended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Treatment procedure"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/details" />
+
+            <TextView
+                android:id="@+id/recommended_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/c_proc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recommended" />
+
+            <TextView
+                android:id="@+id/why"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Safety practices"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recommended_details" />
+
+            <TextView
+                android:id="@+id/why_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/c_saf"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/why" />
+
+            <TextView
+                android:id="@+id/chemical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Chemicals to be used"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/why_details" />
+
+            <TextView
+                android:id="@+id/checmical_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/c_c"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chemical" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.count != 0 ? View.VISIBLE : View.GONE}"
+                app:constraint_referenced_ids="minus,plus,count" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
 </layout>

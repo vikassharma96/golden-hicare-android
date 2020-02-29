@@ -1,6 +1,7 @@
 package com.teckudos.goldenhicare.views
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +16,9 @@ import com.teckudos.goldenhicare.R
 import com.teckudos.goldenhicare.adapters.CategoryTypeAdapter
 import com.teckudos.goldenhicare.adapters.ImageSlideAdapter
 import com.teckudos.goldenhicare.databinding.FragmentMainBinding
+import com.teckudos.goldenhicare.domain.Category
+import com.teckudos.goldenhicare.domain.Item
 import com.teckudos.goldenhicare.viewmodels.MainViewModel
-
 
 class MainFragment : Fragment() {
 
@@ -25,6 +27,11 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentMainBinding
+    private var handler = Handler()
+    private lateinit var runnable: Runnable
+    private lateinit var item: Item
+    private lateinit var imageSlideAdapter: ImageSlideAdapter
+    private var count: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,14 +41,31 @@ class MainFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         init()
+        initListener()
         return binding.root
     }
 
     private fun init() {
-        val imageSlideAdapter = ImageSlideAdapter()
+
+        val categoryAdapter = CategoryTypeAdapter { category -> onItemClick(category) }
+        categoryAdapter.setItem(viewModel.category)
+        with(binding.recyclerView) {
+            adapter = categoryAdapter
+        }
+
+        val recommendation = CategoryTypeAdapter { category -> onItemClick(category) }
+        recommendation.setItem(viewModel.recommendation)
+        with(binding.recommendationRecyclerView) {
+            adapter = recommendation
+        }
+    }
+
+    private fun initListener() {
+        imageSlideAdapter = ImageSlideAdapter()
         imageSlideAdapter.setItem(viewModel.images)
         val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin)
         val offsetPx = resources.getDimensionPixelOffset(R.dimen.offset)
+
         with(binding.viewPager) {
             clipToPadding = false
             clipChildren = false
@@ -70,6 +94,7 @@ class MainFragment : Fragment() {
 
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
+                    item = viewModel.images.get(position)
                 }
 
                 override fun onPageScrollStateChanged(state: Int) {
@@ -78,15 +103,33 @@ class MainFragment : Fragment() {
             })
             adapter = imageSlideAdapter
         }
-
-        val categoryAdapter = CategoryTypeAdapter{ onItemClick() }
-        categoryAdapter.setItem(viewModel.category)
-        with(binding.recyclerView) {
-            adapter = categoryAdapter
-        }
     }
 
-    private fun onItemClick(){
+    override fun onStart() {
+        super.onStart()
+        runnable = Runnable {
+            if (imageSlideAdapter.itemCount == count) {
+                count = 0
+            } else {
+                count++
+            }
+            binding.viewPager.setCurrentItem(count, true)
+            handler.postDelayed(runnable, 4000)
+        }
+        handler.postDelayed(runnable, 4000)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        handler.removeCallbacks(runnable)
+    }
+
+    private fun onItemClick(category: Category) {
+        /*findNavController().navigate(
+            MainFragmentDirections.actionMainFragmentToCategoryDetailFragment(
+                category
+            )
+        )*/
         findNavController().navigate(MainFragmentDirections.actionMainFragmentToCategoryFragment())
     }
 }

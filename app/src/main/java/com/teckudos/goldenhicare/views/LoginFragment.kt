@@ -16,6 +16,9 @@ class LoginFragment : Fragment() {
     private val viewModel: LoginViewModel by lazy {
         ViewModelProvider(this).get(LoginViewModel::class.java)
     }
+    private val homeViewModel: HomeViewModel by lazy {
+        ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
+    }
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -36,7 +39,8 @@ class LoginFragment : Fragment() {
         viewModel.navigateToMain.observe(viewLifecycleOwner,
             Observer<Boolean> { shouldNavigate ->
                 if (shouldNavigate == true) {
-                    (requireActivity() as HomeActivity).changeGraph()
+                    homeViewModel.changeGraph.value = true
+                    // (requireActivity() as HomeActivity).changeGraph()
                 }
             })
     }

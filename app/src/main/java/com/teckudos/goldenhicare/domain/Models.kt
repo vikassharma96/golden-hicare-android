@@ -1,8 +1,12 @@
 package com.teckudos.goldenhicare.domain
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class Item(var id: Int, var url: String)
 
-data class Category(var id: Int, var name: String, var image: Int)
+@Parcelize
+data class Category(var id: Int, var name: String, var image: Int) : Parcelable {}
 
 data class CategoryItem(
     var id: Int,
